@@ -1,8 +1,9 @@
 import Link from "next/link";
 import React, { useState } from "react";
 import axios from 'axios' 
-
+import { useRouter } from 'next/router'
 const new_product = () => {
+  const router = useRouter()
   const [form, setForm] = useState({
     name: "",
     price: "",
@@ -14,7 +15,6 @@ const new_product = () => {
   let productId = Math.floor(100000 * Math.random());
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
-    console.log(form.available_qty);
   };
   const submit = async () => {
     axios.post("http://localhost:1337/api/products", {
@@ -36,7 +36,8 @@ const new_product = () => {
           console.log(error);
         }
       );
-      console.log("Axios")
+      alert("Your product has been added sucessfully")
+      router.push('/products')
   };
 
   return (
@@ -54,12 +55,12 @@ const new_product = () => {
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
                   viewBox="0 0 24 24"
-                  stroke-width="1.5"
+                  strokeWidth="1.5"
                   stroke="currentColor"
                 >
                   <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
                     d="M6.75 15.75L3 12m0 0l3.75-3.75M3 12h18"
                   />
                 </svg>
@@ -77,7 +78,7 @@ const new_product = () => {
                 <div className="grid grid-cols-6 gap-6">
                   <div className="col-span-6 sm:col-span-3">
                     <label
-                      for="product_name"
+                      htmlFor="product_name"
                       className="block text-sm font-medium text-gray-700"
                     >
                       Product name
@@ -94,7 +95,7 @@ const new_product = () => {
 
                   <div className="col-span-6 sm:col-span-3">
                     <label
-                      for="price"
+                      htmlFor="price"
                       className="block text-sm font-medium text-gray-700"
                     >
                       Price
@@ -111,7 +112,7 @@ const new_product = () => {
 
                   <div className="col-span-6 sm:col-span-4">
                     <label
-                      for="description"
+                      htmlFor="description"
                       className="block text-sm font-medium text-gray-700"
                     >
                       Description
@@ -122,14 +123,14 @@ const new_product = () => {
                       type="text"
                       name="description"
                       id="description"
-                      autocomplete="email"
+                     
                       className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
                     />
                   </div>
 
                   <div className="col-span-6">
                     <label
-                      for="img_url"
+                      htmlFor="img_url"
                       className="block text-sm font-medium text-gray-700"
                     >
                       image Url
@@ -140,14 +141,13 @@ const new_product = () => {
                       type="text"
                       name="img_url"
                       id="img_url"
-                      autocomplete="street-address"
                       className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
                     />
                   </div>
 
                   <div className="col-span-6 sm:col-span-6 lg:col-span-2">
                     <label
-                      for="category"
+                      htmlFor="category"
                       className="block text-sm font-medium text-gray-700"
                     >
                       Category
@@ -164,7 +164,7 @@ const new_product = () => {
 
                   <div className="col-span-6 sm:col-span-3 lg:col-span-2">
                     <label
-                      for="available_qty"
+                      htmlFor="available_qty"
                       className="block text-sm font-medium text-gray-700"
                     >
                       Available Quantity
