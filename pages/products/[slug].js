@@ -19,7 +19,7 @@ const slug = (props) => {
       setForm({ ...form, [e.target.name]: e.target.value });
     };
     const submit = async () => {
-      axios.put("http://localhost:1337/api/products/"+props.product.id, {
+      axios.put("https://healing-cuddle-a2a1780b28.strapiapp.com/api/products/"+props.product.id, {
           data: {
             category: form.category,
           price: form.price,
@@ -41,7 +41,7 @@ const slug = (props) => {
         router.push('/products')
     };
     const delete_pro = async () => {
-      axios.delete("http://localhost:1337/api/products/"+props.product.id
+      axios.delete("https://healing-cuddle-a2a1780b28.strapiapp.com/api/products/"+props.product.id
         );
         alert("Product has been removed sucessfully")
         router.push('/products')
@@ -206,7 +206,7 @@ const slug = (props) => {
   )
 }
 export async function getServerSideProps(context) {
-    let a = await fetch("http://192.168.0.110:1337/api/products?filters[Productid]=" + context.query.slug + "&populate=*")
+    let a = await fetch("https://healing-cuddle-a2a1780b28.strapiapp.com/api/products?filters[Productid]=" + context.query.slug + "&populate=*")
     let product = await a.json() 
     return {
     props: { product: product.data[0] },

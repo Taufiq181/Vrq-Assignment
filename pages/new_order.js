@@ -16,7 +16,7 @@ const new_orders = () => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
   const submit = async () => {
-    axios.post("http://localhost:1337/api/orders", {
+    axios.post("https://healing-cuddle-a2a1780b28.strapiapp.com/api/orders", {
         data: {
         amount: form.amount,
         product: form.product,

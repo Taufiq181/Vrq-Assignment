@@ -68,7 +68,7 @@ const orders = (props) => {
   )
 }
 export async function getServerSideProps(context) {
-    let a= await fetch('http://192.168.0.110:1337/api/orders?populate=*')
+    let a= await fetch('https://healing-cuddle-a2a1780b28.strapiapp.com/api/orders?populate=*')
      let orders = await a.json()
     return {
     props: {orders},

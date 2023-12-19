@@ -17,7 +17,7 @@ const new_product = () => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
   const submit = async () => {
-    axios.post("http://localhost:1337/api/products", {
+    axios.post("https://healing-cuddle-a2a1780b28.strapiapp.com/api/products", {
         data: {
           category: form.category,
         price: form.price,
