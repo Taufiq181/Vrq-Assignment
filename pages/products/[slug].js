@@ -24,7 +24,7 @@ const slug = (props) => {
             category: form.category,
           price: form.price,
           image_url: form.img_url,
-          Available_qty: 12,
+          Available_qty: form.available_qty,
           name: form.name,
           description: form.description
           },
